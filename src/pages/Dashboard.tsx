@@ -10,7 +10,8 @@ import {
   Trophy,
   Star,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  MoreHorizontal
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
@@ -21,8 +22,20 @@ export default function Dashboard() {
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative py-16 px-10 rounded-xl overflow-hidden bg-secondary text-white editorial-shadow"
+        className="relative py-16 px-10 rounded-[3rem] overflow-hidden bg-secondary text-white editorial-shadow"
       >
+        {/* Background Image with Expert Design Touches */}
+        <div className="absolute right-0 top-0 h-full w-full lg:w-3/5 z-0 pointer-events-none overflow-hidden">
+          <img 
+            src="https://picsum.photos/seed/students-playing/1200/800" 
+            alt="Estudiantes" 
+            className="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-110 group-hover:scale-100 transition-transform duration-1000"
+            referrerPolicy="no-referrer"
+          />
+          {/* Gradient Mask for seamless blending */}
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent"></div>
+        </div>
+
         <div className="relative z-10 max-w-2xl">
           <span className="font-bold text-xs tracking-[0.2em] text-blue-200 uppercase block mb-4">¡Buen día, Alejandro!</span>
           <h1 className="font-headline text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
@@ -41,8 +54,8 @@ export default function Dashboard() {
           </div>
         </div>
         {/* Decorative Elements */}
-        <div className="absolute -right-16 -top-16 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
-        <div className="absolute right-12 bottom-0 w-80 h-80 bg-secondary-container/10 rounded-full blur-2xl"></div>
+        <div className="absolute -right-16 -top-16 w-96 h-96 bg-primary/20 rounded-full blur-3xl z-0"></div>
+        <div className="absolute right-12 bottom-0 w-80 h-80 bg-secondary-container/10 rounded-full blur-2xl z-0"></div>
       </motion.section>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -60,37 +73,47 @@ export default function Dashboard() {
             
             <div className="space-y-4">
               {[
-                { time: "08:00", period: "AM", title: "Matemáticas Avanzadas", subtitle: "Aula 302 • Dra. Helena Ramirez", status: "En curso", color: "border-primary", link: "/cursos", roomLink: "/aula" },
-                { time: "10:15", period: "AM", title: "Literatura Universal", subtitle: "Salón de Biblioteca • Prof. James Miller", status: "Próxima", color: "border-secondary", link: "/cursos", roomLink: "/aula" },
-                { time: "01:30", period: "PM", title: "Laboratorio de Física", subtitle: "Ala de Ciencias B • Dr. Aris Thorne", status: "Más tarde", color: "border-tertiary", link: "/cursos", roomLink: "/aula" }
+                { time: "08:00", period: "AM", title: "Matemáticas Avanzadas", subtitle: "Aula 302 • Dra. Helena Ramirez", status: "En curso", color: "bg-primary", link: "/cursos", roomLink: "/aula" },
+                { time: "10:15", period: "AM", title: "Literatura Universal", subtitle: "Salón de Biblioteca • Prof. James Miller", status: "Próxima", color: "bg-secondary", link: "/cursos", roomLink: "/aula" },
+                { time: "01:30", period: "PM", title: "Laboratorio de Física", subtitle: "Ala de Ciencias B • Dr. Aris Thorne", status: "Más tarde", color: "bg-tertiary", link: "/cursos", roomLink: "/aula" }
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className={cn(
-                    "group flex items-center gap-8 p-6 bg-white rounded-2xl transition-all hover:editorial-shadow border-l-8",
-                    item.color
-                  )}
+                  className="group flex items-center gap-6 h-16 px-8 bg-white rounded-full transition-all hover:editorial-shadow border border-slate-50 relative overflow-hidden"
                 >
-                  <div className="text-center min-w-[70px]">
-                    <p className="text-lg font-black text-slate-400">{item.time}</p>
-                    <p className="text-xs font-bold text-slate-300 uppercase tracking-widest">{item.period}</p>
+                  {/* Color Indicator Bar */}
+                  <div className={cn("absolute left-0 top-0 w-2 h-full", item.color)}></div>
+                  
+                  <div className="text-center min-w-[60px]">
+                    <p className="text-base font-black text-on-surface leading-none">{item.time}</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{item.period}</p>
                   </div>
-                  <div className="flex-1">
-                    <Link to={item.link} className="font-bold text-xl text-on-surface tracking-tight hover:text-secondary transition-colors">{item.title}</Link>
-                    <p className="text-sm text-slate-500 font-medium">
-                      <Link to={item.roomLink} className="hover:underline">{item.subtitle.split(' • ')[0]}</Link> • {item.subtitle.split(' • ')[1]}
-                    </p>
+
+                  <div className="flex-1 flex items-center gap-4 overflow-hidden">
+                    <div className="h-8 w-[1px] bg-slate-100"></div>
+                    <div className="truncate">
+                      <Link to={item.link} className="font-bold text-base text-on-surface tracking-tight hover:text-secondary transition-colors block truncate">{item.title}</Link>
+                      <p className="text-xs text-slate-400 font-medium truncate">
+                        <Link to={item.roomLink} className="hover:underline">{item.subtitle.split(' • ')[0]}</Link> • {item.subtitle.split(' • ')[1]}
+                      </p>
+                    </div>
                   </div>
-                  <span className={cn(
-                    "px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest",
-                    item.status === "En curso" ? "bg-primary/10 text-primary animate-pulse" : 
-                    item.status === "Próxima" ? "bg-secondary/10 text-secondary" : "bg-slate-100 text-slate-400"
-                  )}>
-                    {item.status}
-                  </span>
+
+                  <div className="flex items-center gap-4">
+                    <span className={cn(
+                      "px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest whitespace-nowrap",
+                      item.status === "En curso" ? "bg-primary/10 text-primary animate-pulse" : 
+                      item.status === "Próxima" ? "bg-secondary/10 text-secondary" : "bg-slate-100 text-slate-400"
+                    )}>
+                      {item.status}
+                    </span>
+                    <button className="p-2 text-slate-300 hover:text-secondary transition-colors">
+                      <MoreHorizontal size={18} />
+                    </button>
+                  </div>
                 </motion.div>
               ))}
             </div>
