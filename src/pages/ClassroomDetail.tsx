@@ -35,7 +35,7 @@ export default function ClassroomDetail() {
         </div>
         
         <div className="flex gap-4">
-          <div className="glass-card p-6 rounded-3xl editorial-shadow flex items-center gap-4 min-w-[220px]">
+          <div className="glass-card p-6 rounded-3xl shadow-editorial flex items-center gap-4 min-w-[220px]">
             <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
               <Users size={24} />
             </div>
@@ -44,7 +44,7 @@ export default function ClassroomDetail() {
               <p className="text-xl font-bold text-on-surface">35 Estudiantes</p>
             </div>
           </div>
-          <div className="glass-card p-6 rounded-3xl editorial-shadow flex items-center gap-4 min-w-[220px]">
+          <div className="glass-card p-6 rounded-3xl shadow-editorial flex items-center gap-4 min-w-[220px]">
             <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
               <Activity size={24} />
             </div>
@@ -60,7 +60,7 @@ export default function ClassroomDetail() {
         {/* Left: Map & Gallery */}
         <div className="lg:col-span-7 space-y-12">
           {/* Interactive Map Mockup */}
-          <div className="bg-white rounded-[3rem] p-10 editorial-shadow relative overflow-hidden group">
+          <div className="bg-white rounded-[3rem] p-10 shadow-editorial relative overflow-hidden group">
             <div className="flex justify-between items-center mb-10">
               <h2 className="text-3xl font-bold tracking-tight">Ubicación de Aula</h2>
               <span className="bg-secondary-fixed text-on-secondary-fixed px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest">Ala Norte</span>
@@ -89,7 +89,7 @@ export default function ClassroomDetail() {
 
           {/* Gallery */}
           <div className="grid grid-cols-2 gap-8">
-            <div className="rounded-[2.5rem] overflow-hidden aspect-square editorial-shadow group cursor-zoom-in">
+            <div className="rounded-[2.5rem] overflow-hidden aspect-square shadow-editorial group cursor-zoom-in">
               <img 
                 src="https://picsum.photos/seed/class1/600/600" 
                 alt="Class" 
@@ -97,7 +97,7 @@ export default function ClassroomDetail() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="rounded-[2.5rem] overflow-hidden aspect-square editorial-shadow group cursor-zoom-in">
+            <div className="rounded-[2.5rem] overflow-hidden aspect-square shadow-editorial group cursor-zoom-in">
               <img 
                 src="https://picsum.photos/seed/class2/600/600" 
                 alt="Class" 
@@ -124,7 +124,7 @@ export default function ClassroomDetail() {
                 { label: "Climatización Central", icon: AirVent },
                 { label: "Estaciones Dell Precision", icon: Monitor }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-2xl flex items-center gap-5 transition-all hover:scale-[1.02] hover:editorial-shadow cursor-default">
+                <div key={idx} className="bg-white p-5 rounded-2xl flex items-center gap-5 transition-all hover:scale-[1.02] hover:shadow-editorial cursor-default">
                   <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
                     <item.icon size={24} />
                   </div>

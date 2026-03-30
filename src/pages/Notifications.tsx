@@ -88,7 +88,7 @@ export default function Notifications() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
             className={cn(
-              "relative group p-8 rounded-3xl transition-all duration-300 editorial-shadow border-l-8",
+              "relative group p-8 rounded-3xl transition-all duration-300 shadow-editorial border-l-8",
               notif.type === "read" ? "bg-white/50 opacity-70 grayscale-[0.5]" : "bg-white hover:scale-[1.01]",
               notif.type === "urgent" ? "border-primary" : 
               notif.type === "unread" ? "border-secondary" : "border-slate-200"

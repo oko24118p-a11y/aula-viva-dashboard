@@ -65,7 +65,7 @@ export default function OfflineStatus() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 100, opacity: 0 }}
             className={cn(
-              "fixed bottom-24 right-6 z-[100] p-6 rounded-3xl editorial-shadow flex items-center gap-4 border-l-8",
+              "fixed bottom-24 right-6 z-[100] p-6 rounded-3xl shadow-editorial flex items-center gap-4 border-l-8",
               isOnline ? "bg-white border-green-500" : "bg-white border-primary"
             )}
           >

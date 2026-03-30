@@ -56,7 +56,7 @@ export default function Settings() {
         {sections.map((section, sIdx) => (
           <div key={sIdx} className="space-y-6">
             <h3 className="text-xs font-black text-slate-300 uppercase tracking-[0.3em] pl-4">{section.title}</h3>
-            <div className="bg-white rounded-[2.5rem] editorial-shadow overflow-hidden border border-slate-50">
+            <div className="bg-white rounded-[2.5rem] shadow-editorial overflow-hidden border border-slate-50">
               <div className="divide-y divide-slate-50">
                 {section.items.map((item, iIdx) => (
                   <button 

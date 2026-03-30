@@ -150,7 +150,7 @@ export default function Grades() {
             onClick={handleDownload}
             disabled={isDownloading}
             className={cn(
-              "px-10 py-4 rounded-2xl editorial-shadow font-bold text-sm flex items-center gap-2 transition-all",
+              "px-10 py-4 rounded-2xl shadow-editorial font-bold text-sm flex items-center gap-2 transition-all",
               isDownloading ? "bg-slate-100 text-slate-400 cursor-wait" : "bg-secondary text-white hover:scale-105 active:scale-95"
             )}
           >
@@ -168,7 +168,7 @@ export default function Grades() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="absolute top-full mt-4 right-0 bg-white p-4 rounded-2xl editorial-shadow border border-green-100 flex items-center gap-3 min-w-[240px] z-20"
+                className="absolute top-full mt-4 right-0 bg-white p-4 rounded-2xl shadow-editorial border border-green-100 flex items-center gap-3 min-w-[240px] z-20"
               >
                 <div className="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center">
                   <CheckCircle2 size={20} />
@@ -195,7 +195,7 @@ export default function Grades() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            className="bg-white p-8 rounded-[2.5rem] editorial-shadow flex flex-col items-center text-center gap-4 group hover:bg-on-surface hover:text-white transition-all duration-500"
+            className="bg-white p-8 rounded-[2.5rem] shadow-editorial flex flex-col items-center text-center gap-4 group hover:bg-on-surface hover:text-white transition-all duration-500"
           >
             <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500", stat.bg, stat.color)}>
               <stat.icon size={32} />
@@ -213,10 +213,10 @@ export default function Grades() {
         <div className="flex justify-between items-center">
           <h3 className="text-3xl font-headline font-extrabold tracking-tight">Detalle Académico</h3>
           <div className="flex gap-2">
-            <button className="p-3 bg-white rounded-xl editorial-shadow text-slate-400 hover:text-secondary transition-colors"><BarChart3 size={20} /></button>
+            <button className="p-3 bg-white rounded-xl shadow-editorial text-slate-400 hover:text-secondary transition-colors"><BarChart3 size={20} /></button>
             <button 
               onClick={() => setIsMenuOpen(true)}
-              className="p-3 bg-white rounded-xl editorial-shadow text-slate-400 hover:text-secondary transition-colors"
+              className="p-3 bg-white rounded-xl shadow-editorial text-slate-400 hover:text-secondary transition-colors"
             >
               <MoreHorizontal size={20} />
             </button>
@@ -231,7 +231,7 @@ export default function Grades() {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ y: -10 }}
               transition={{ delay: idx * 0.05 }}
-              className="group relative bg-white rounded-[3rem] p-8 editorial-shadow overflow-hidden border border-slate-50 flex flex-col justify-between min-h-[320px]"
+              className="group relative bg-white rounded-[3rem] p-8 shadow-editorial overflow-hidden border border-slate-50 flex flex-col justify-between min-h-[320px]"
             >
               {/* Background Accent */}
               <div className={cn("absolute top-0 right-0 w-32 h-32 bg-gradient-to-br opacity-5 rounded-bl-[5rem] transition-all group-hover:scale-150 duration-700", sub.color)}></div>

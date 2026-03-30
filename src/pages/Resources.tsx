@@ -44,7 +44,7 @@ export default function Resources() {
           <input 
             type="text" 
             placeholder="Buscar recursos..." 
-            className="w-full pl-14 pr-6 py-4 bg-white rounded-2xl editorial-shadow border-none focus:ring-2 focus:ring-secondary/20 transition-all text-sm font-medium"
+            className="w-full pl-14 pr-6 py-4 bg-white rounded-2xl shadow-editorial border-none focus:ring-2 focus:ring-secondary/20 transition-all text-sm font-medium"
           />
         </div>
       </section>
@@ -72,7 +72,7 @@ export default function Resources() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="bg-white p-8 rounded-[2.5rem] editorial-shadow group hover:scale-[1.02] transition-all cursor-pointer border border-slate-50"
+            className="bg-white p-8 rounded-[2.5rem] shadow-editorial group hover:scale-[1.02] transition-all cursor-pointer border border-slate-50"
           >
             <div className="flex justify-between items-start mb-8">
               <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center", res.bg, res.color)}>
@@ -113,7 +113,7 @@ export default function Resources() {
             </p>
             <div className="flex flex-wrap gap-4">
               {["Khan Academy", "Coursera", "WolframAlpha"].map(tool => (
-                <div key={tool} className="px-6 py-3 bg-white rounded-xl font-bold text-sm editorial-shadow flex items-center gap-2">
+                <div key={tool} className="px-6 py-3 bg-white rounded-xl font-bold text-sm shadow-editorial flex items-center gap-2">
                   <Globe size={16} className="text-secondary" />
                   {tool}
                 </div>
@@ -121,14 +121,14 @@ export default function Resources() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white p-8 rounded-3xl editorial-shadow space-y-4">
+            <div className="bg-white p-8 rounded-3xl shadow-editorial space-y-4">
               <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
                 <Filter size={24} />
               </div>
               <h4 className="font-bold text-lg">Filtros Inteligentes</h4>
               <p className="text-xs text-slate-400 font-medium">Encuentra material específico por grado y materia.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl editorial-shadow space-y-4 translate-y-8">
+            <div className="bg-white p-8 rounded-3xl shadow-editorial space-y-4 translate-y-8">
               <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center">
                 <Bookmark size={24} />
               </div>

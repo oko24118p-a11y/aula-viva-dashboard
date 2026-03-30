@@ -46,11 +46,11 @@ export default function Schedule() {
         </div>
 
         <div className="flex gap-4 w-full md:w-auto">
-          <button className="flex-1 md:flex-none px-8 py-4 bg-white rounded-2xl editorial-shadow font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
+          <button className="flex-1 md:flex-none px-8 py-4 bg-white rounded-2xl shadow-editorial font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
             <Filter size={18} />
             Filtrar
           </button>
-          <button className="flex-1 md:flex-none px-8 py-4 bg-secondary text-white rounded-2xl editorial-shadow font-bold text-sm flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+          <button className="flex-1 md:flex-none px-8 py-4 bg-secondary text-white rounded-2xl shadow-editorial font-bold text-sm flex items-center justify-center gap-2 hover:scale-105 transition-transform">
             <Download size={18} />
             Exportar PDF
           </button>
@@ -58,7 +58,7 @@ export default function Schedule() {
       </section>
 
       {/* Schedule Grid */}
-      <div className="bg-white rounded-[3rem] editorial-shadow overflow-hidden border border-slate-100">
+      <div className="bg-white rounded-[3rem] shadow-editorial overflow-hidden border border-slate-100">
         <div className="overflow-x-auto no-scrollbar">
           <div className="min-w-[800px]">
             {/* Grid Header */}

@@ -65,7 +65,7 @@ export default function Attendance() {
         </div>
 
         <div className="flex gap-4 w-full md:w-auto relative">
-          <button className="flex-1 md:flex-none px-8 py-4 bg-white rounded-2xl editorial-shadow font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
+          <button className="flex-1 md:flex-none px-8 py-4 bg-white rounded-2xl shadow-editorial font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
             <Filter size={18} />
             Filtrar
           </button>
@@ -75,7 +75,7 @@ export default function Attendance() {
               onClick={handleDownload}
               disabled={isDownloading}
               className={cn(
-                "w-full px-8 py-4 rounded-2xl editorial-shadow font-bold text-sm flex items-center justify-center gap-2 transition-all",
+                "w-full px-8 py-4 rounded-2xl shadow-editorial font-bold text-sm flex items-center justify-center gap-2 transition-all",
                 isDownloading ? "bg-slate-100 text-slate-400 cursor-wait" : "bg-secondary text-white hover:scale-105"
               )}
             >
@@ -89,7 +89,7 @@ export default function Attendance() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full mt-4 right-0 bg-white p-4 rounded-2xl editorial-shadow border border-green-100 flex items-center gap-3 min-w-[240px] z-20"
+                  className="absolute top-full mt-4 right-0 bg-white p-4 rounded-2xl shadow-editorial border border-green-100 flex items-center gap-3 min-w-[240px] z-20"
                 >
                   <div className="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center">
                     <CheckCircle2 size={20} />
@@ -108,7 +108,7 @@ export default function Attendance() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {stats.map((stat, idx) => (
-          <div key={idx} className="bg-white p-10 rounded-[3rem] editorial-shadow flex flex-col items-center text-center gap-6 group hover:scale-105 transition-transform cursor-default">
+          <div key={idx} className="bg-white p-10 rounded-[3rem] shadow-editorial flex flex-col items-center text-center gap-6 group hover:scale-105 transition-transform cursor-default">
             <div className={cn("w-20 h-20 rounded-[2rem] flex items-center justify-center", stat.bg, stat.color)}>
               <stat.icon size={40} />
             </div>
@@ -121,7 +121,7 @@ export default function Attendance() {
       </div>
 
       {/* Attendance List */}
-      <section className="bg-white rounded-[3rem] editorial-shadow overflow-hidden border border-slate-50">
+      <section className="bg-white rounded-[3rem] shadow-editorial overflow-hidden border border-slate-50">
         <div className="p-10 border-b border-slate-100 flex justify-between items-center">
           <h3 className="text-2xl font-bold tracking-tight">Historial Reciente</h3>
           <div className="flex items-center gap-2 text-xs font-black text-slate-300 uppercase tracking-widest">
@@ -176,7 +176,7 @@ export default function Attendance() {
               Recuerda que tienes un plazo de 48 horas para presentar la documentación correspondiente a través de este portal.
             </p>
           </div>
-          <button className="px-12 py-5 bg-white text-on-surface font-bold rounded-2xl editorial-shadow hover:bg-slate-50 transition-all shrink-0">
+          <button className="px-12 py-5 bg-white text-on-surface font-bold rounded-2xl shadow-editorial hover:bg-slate-50 transition-all shrink-0">
             Enviar Justificación
           </button>
         </div>

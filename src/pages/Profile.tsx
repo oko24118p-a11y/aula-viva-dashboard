@@ -20,7 +20,7 @@ export default function Profile() {
     <div className="space-y-12">
       {/* Profile Header */}
       <section className="relative">
-        <div className="h-64 w-full bg-gradient-to-br from-secondary to-blue-900 rounded-[3rem] editorial-shadow overflow-hidden relative">
+        <div className="h-64 w-full bg-gradient-to-br from-secondary to-blue-900 rounded-[3rem] shadow-editorial overflow-hidden relative">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
           </div>
@@ -50,7 +50,7 @@ export default function Profile() {
           </div>
 
           <div className="pb-4">
-            <button className="px-10 py-4 bg-white text-on-surface font-bold rounded-full editorial-shadow flex items-center gap-3 hover:bg-slate-50 transition-all">
+            <button className="px-10 py-4 bg-white text-on-surface font-bold rounded-full shadow-editorial flex items-center gap-3 hover:bg-slate-50 transition-all">
               <Edit3 size={20} />
               Editar Perfil
             </button>
@@ -61,7 +61,7 @@ export default function Profile() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left: Personal Info */}
         <div className="lg:col-span-4 space-y-8">
-          <section className="bg-white p-10 rounded-[3rem] editorial-shadow space-y-10">
+          <section className="bg-white p-10 rounded-[3rem] shadow-editorial space-y-10">
             <h3 className="text-2xl font-bold tracking-tight">Información Personal</h3>
             
             <div className="space-y-8">
@@ -106,7 +106,7 @@ export default function Profile() {
               { label: "Asistencia", value: "98%", icon: History, color: "text-primary" },
               { label: "Créditos", value: "142", icon: FileText, color: "text-tertiary" }
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-[2.5rem] editorial-shadow flex flex-col items-center text-center gap-4">
+              <div key={idx} className="bg-white p-8 rounded-[2.5rem] shadow-editorial flex flex-col items-center text-center gap-4">
                 <div className={cn("w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center", stat.color)}>
                   <stat.icon size={28} />
                 </div>
@@ -139,7 +139,7 @@ export default function Profile() {
                     "absolute -left-[11px] top-0 w-5 h-5 rounded-full border-4 border-surface-container-low",
                     item.active ? "bg-secondary" : "bg-slate-200"
                   )} />
-                  <div className="bg-white p-6 rounded-2xl editorial-shadow">
+                  <div className="bg-white p-6 rounded-2xl shadow-editorial">
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-bold text-xl text-on-surface">{item.title}</h4>
                       <span className="text-xs font-black text-slate-300">{item.year}</span>

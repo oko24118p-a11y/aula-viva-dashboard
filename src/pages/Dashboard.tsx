@@ -11,234 +11,258 @@ import {
   Star,
   CheckCircle2,
   AlertCircle,
-  MoreHorizontal
+  MoreHorizontal,
+  User
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
 export default function Dashboard() {
   return (
-    <div className="space-y-12">
-      {/* Hero Banner */}
-      <motion.section 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative py-16 px-10 rounded-[3rem] overflow-hidden bg-secondary text-white editorial-shadow"
-      >
-        {/* Background Image with Expert Design Touches */}
-        <div className="absolute right-0 top-0 h-full w-full lg:w-3/5 z-0 pointer-events-none overflow-hidden">
-          <img 
-            src="https://picsum.photos/seed/students-playing/1200/800" 
-            alt="Estudiantes" 
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-110 group-hover:scale-100 transition-transform duration-1000"
-            referrerPolicy="no-referrer"
-          />
-          {/* Gradient Mask for seamless blending */}
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent"></div>
-        </div>
-
-        <div className="relative z-10 max-w-2xl">
-          <span className="font-bold text-xs tracking-[0.2em] text-blue-200 uppercase block mb-4">¡Buen día, Alejandro!</span>
-          <h1 className="font-headline text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-            Tu camino académico <br/>te espera hoy.
-          </h1>
-          <p className="text-blue-100 text-lg leading-relaxed mb-10 max-w-lg">
-            Tienes 4 clases hoy y 2 tareas pendientes para la medianoche. Mantén el enfoque y sigue alcanzando el estándar de oro.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/perfil" className="px-10 py-4 bg-primary text-white font-bold rounded-full hover:scale-105 transition-transform editorial-shadow">
-              Ver Mi Portal
-            </Link>
-            <Link to="/recursos" className="px-10 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all">
-              Enlaces Rápidos
-            </Link>
+    <div className="space-y-8">
+      {/* Header Section */}
+      <section className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+        <div className="space-y-2">
+          <h1 className="text-5xl font-bold tracking-tight text-on-surface font-headline">Welcome in, Nixtio</h1>
+          <div className="flex flex-wrap gap-8 pt-4">
+            {[
+              { label: "Interviews", value: "15%", color: "bg-on-surface" },
+              { label: "Hired", value: "15%", color: "bg-tertiary" },
+              { label: "Project time", value: "60%", color: "bg-slate-200" },
+              { label: "Output", value: "10%", color: "bg-slate-100" },
+            ].map((stat, idx) => (
+              <div key={idx} className="space-y-2">
+                <p className="text-xs font-bold text-slate-400">{stat.label}</p>
+                <div className="flex items-center gap-3">
+                  <div className={cn("h-8 px-4 flex items-center justify-center rounded-full text-[10px] font-bold text-white", stat.color)}>
+                    {stat.value}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        {/* Decorative Elements */}
-        <div className="absolute -right-16 -top-16 w-96 h-96 bg-primary/20 rounded-full blur-3xl z-0"></div>
-        <div className="absolute right-12 bottom-0 w-80 h-80 bg-secondary-container/10 rounded-full blur-2xl z-0"></div>
-      </motion.section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Left Column: Schedule & Materials */}
-        <div className="lg:col-span-8 space-y-12">
-          {/* Daily Schedule */}
-          <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="font-headline text-3xl font-bold text-on-surface tracking-tight">Horario Diario</h2>
-              <Link to="/horario" className="text-sm font-bold text-secondary flex items-center gap-2 hover:underline group">
-                Calendario Completo 
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+        <div className="flex gap-12 pb-2">
+          {[
+            { label: "Employe", value: "78" },
+            { label: "Hirings", value: "56" },
+            { label: "Projects", value: "203" },
+          ].map((stat, idx) => (
+            <div key={idx} className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center">
+                <User size={16} className="text-slate-400" />
+              </div>
+              <div>
+                <p className="text-4xl font-bold tracking-tighter">{stat.value}</p>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{stat.label}</p>
+              </div>
             </div>
-            
-            <div className="space-y-4">
-              {[
-                { time: "08:00", period: "AM", title: "Matemáticas Avanzadas", subtitle: "Aula 302 • Dra. Helena Ramirez", status: "En curso", color: "bg-primary", link: "/cursos", roomLink: "/aula" },
-                { time: "10:15", period: "AM", title: "Literatura Universal", subtitle: "Salón de Biblioteca • Prof. James Miller", status: "Próxima", color: "bg-secondary", link: "/cursos", roomLink: "/aula" },
-                { time: "01:30", period: "PM", title: "Laboratorio de Física", subtitle: "Ala de Ciencias B • Dr. Aris Thorne", status: "Más tarde", color: "bg-tertiary", link: "/cursos", roomLink: "/aula" }
-              ].map((item, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="group flex items-center gap-6 h-16 px-8 bg-white rounded-full transition-all hover:editorial-shadow border border-slate-50 relative overflow-hidden"
-                >
-                  {/* Color Indicator Bar */}
-                  <div className={cn("absolute left-0 top-0 w-2 h-full", item.color)}></div>
-                  
-                  <div className="text-center min-w-[60px]">
-                    <p className="text-base font-black text-on-surface leading-none">{item.time}</p>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{item.period}</p>
-                  </div>
+          ))}
+        </div>
+      </section>
 
-                  <div className="flex-1 flex items-center gap-4 overflow-hidden">
-                    <div className="h-8 w-[1px] bg-slate-100"></div>
-                    <div className="truncate">
-                      <Link to={item.link} className="font-bold text-base text-on-surface tracking-tight hover:text-secondary transition-colors block truncate">{item.title}</Link>
-                      <p className="text-xs text-slate-400 font-medium truncate">
-                        <Link to={item.roomLink} className="hover:underline">{item.subtitle.split(' • ')[0]}</Link> • {item.subtitle.split(' • ')[1]}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <span className={cn(
-                      "px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest whitespace-nowrap",
-                      item.status === "En curso" ? "bg-primary/10 text-primary animate-pulse" : 
-                      item.status === "Próxima" ? "bg-secondary/10 text-secondary" : "bg-slate-100 text-slate-400"
-                    )}>
-                      {item.status}
-                    </span>
-                    <button className="p-2 text-slate-300 hover:text-secondary transition-colors">
-                      <MoreHorizontal size={18} />
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
+      {/* Widgets Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Progress Widget */}
+        <div className="crextio-card flex flex-col justify-between min-h-[300px]">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="text-xl font-bold">Progress</h3>
+              <div className="flex items-baseline gap-2 mt-2">
+                <span className="text-4xl font-bold tracking-tighter">6.1 h</span>
+                <span className="text-xs text-slate-400 font-bold">Work Time this week</span>
+              </div>
             </div>
-          </section>
-
-          {/* Learning Materials */}
-          <section>
-            <h2 className="font-headline text-3xl font-bold text-on-surface tracking-tight mb-8">Materiales de Aprendizaje</h2>
-            <div className="flex gap-6 overflow-x-auto pb-8 no-scrollbar -mx-2 px-2">
-              {[
-                { title: "Introducción a las Integrales", type: "Video Clase", icon: PlayCircle, color: "text-secondary", img: "https://picsum.photos/seed/math/400/300" },
-                { title: "Mecánica de Ondas", type: "Documento", icon: FileText, color: "text-primary", img: "https://picsum.photos/seed/physics/400/300" },
-                { title: "Preparación: La Ilustración", type: "Práctica", icon: HelpCircle, color: "text-tertiary", img: "https://picsum.photos/seed/history/400/300" }
-              ].map((item, idx) => (
-                <motion.div 
-                  key={idx}
-                  whileHover={{ y: -8 }}
-                  className="min-w-[280px] bg-white rounded-3xl editorial-shadow overflow-hidden group cursor-pointer"
-                >
-                  <div className="h-40 bg-slate-200 overflow-hidden relative">
-                    <img 
-                      src={item.img} 
-                      alt={item.title} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
-                    <div className="absolute bottom-4 left-4">
-                      <item.icon className={cn("w-8 h-8 fill-white", item.color)} />
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className={cn("text-[10px] font-black uppercase tracking-[0.2em] mb-2", item.color)}>{item.type}</p>
-                    <h4 className="font-bold text-lg leading-tight text-on-surface">{item.title}</h4>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
+            <button className="p-2 bg-slate-50 rounded-full">
+              <ArrowRight size={16} className="-rotate-45" />
+            </button>
+          </div>
+          
+          <div className="flex items-end justify-between h-32 gap-2 mt-8">
+            {[40, 60, 30, 80, 50, 90, 40].map((h, i) => (
+              <div key={i} className="flex-1 flex flex-col items-center gap-2">
+                <div 
+                  className={cn(
+                    "w-full rounded-full transition-all duration-500",
+                    i === 5 ? "bg-on-surface" : "bg-slate-100"
+                  )}
+                  style={{ height: `${h}%` }}
+                />
+                <span className="text-[10px] font-bold text-slate-400">
+                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'][i]}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Right Column: Achievements & Tasks */}
-        <aside className="lg:col-span-4 space-y-12">
-          {/* Academic Achievements */}
-          <section className="bg-surface-container-high p-8 rounded-3xl editorial-shadow relative overflow-hidden">
-            <div className="absolute -right-8 -top-8 opacity-5">
-              <Trophy size={160} />
+        {/* Time Tracker Widget */}
+        <div className="crextio-card flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden">
+          <button className="absolute top-6 right-6 p-2 bg-slate-50 rounded-full">
+            <ArrowRight size={16} className="-rotate-45" />
+          </button>
+          <h3 className="absolute top-6 left-6 text-xl font-bold">Time tracker</h3>
+          
+          <div className="relative w-48 h-48 flex items-center justify-center">
+            {/* Simple SVG Circular Progress */}
+            <svg className="w-full h-full -rotate-90">
+              <circle
+                cx="96"
+                cy="96"
+                r="80"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="8"
+                className="text-slate-100"
+              />
+              <circle
+                cx="96"
+                cy="96"
+                r="80"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="8"
+                strokeDasharray="502.4"
+                strokeDashoffset="150"
+                className="text-tertiary"
+              />
+            </svg>
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <span className="text-4xl font-bold tracking-tighter">02:35</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Work Time</span>
             </div>
-            <h2 className="font-headline text-2xl font-bold text-on-surface mb-8">Logros Académicos</h2>
-            <div className="space-y-8">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-bold text-on-surface">Créditos de Curso</p>
-                  <p className="text-xs text-slate-500 font-medium">Becario Nivel 4</p>
-                </div>
-                <p className="text-4xl font-black text-secondary italic">85%</p>
-              </div>
-              <div className="h-3 w-full bg-white rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "85%" }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-secondary rounded-full"
-                />
-              </div>
-              <div className="grid grid-cols-3 gap-3 pt-4">
-                {[
-                  { label: "Oro", icon: Trophy, color: "text-tertiary", active: true },
-                  { label: "Élite", icon: Star, color: "text-slate-300", active: false },
-                  { label: "Perfecto", icon: CheckCircle2, color: "text-secondary", active: true }
-                ].map((badge, idx) => (
-                  <div 
-                    key={idx}
-                    className={cn(
-                      "aspect-square bg-white rounded-2xl flex items-center justify-center flex-col gap-2 transition-all",
-                      !badge.active && "opacity-40 grayscale"
-                    )}
-                  >
-                    <badge.icon className={cn("w-8 h-8", badge.color)} />
-                    <span className="text-[8px] font-black uppercase tracking-tighter">{badge.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          </div>
 
-          {/* Pending Tasks */}
-          <section>
-            <h2 className="font-headline text-2xl font-bold text-on-surface mb-8">Tareas Pendientes</h2>
-            <div className="space-y-4">
+          <div className="flex items-center gap-4">
+            <button className="p-4 bg-slate-50 rounded-full hover:bg-slate-100 transition-colors">
+              <PlayCircle size={24} />
+            </button>
+            <button className="p-4 bg-slate-50 rounded-full hover:bg-slate-100 transition-colors">
+              <Clock size={24} />
+            </button>
+          </div>
+        </div>
+
+        {/* Onboarding Widget */}
+        <div className="crextio-card space-y-6">
+          <div className="flex justify-between items-center">
+            <h3 className="text-xl font-bold">Onboarding</h3>
+            <span className="text-2xl font-bold">18%</span>
+          </div>
+          
+          <div className="space-y-4">
+            <div className="flex gap-2">
+              <div className="h-2 flex-[0.3] bg-tertiary rounded-full" />
+              <div className="h-2 flex-[0.25] bg-on-surface rounded-full" />
+              <div className="h-2 flex-[0.45] bg-slate-100 rounded-full" />
+            </div>
+            <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <span>30%</span>
+              <span>25%</span>
+              <span>0%</span>
+            </div>
+          </div>
+
+          <div className="pt-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <h4 className="font-bold">Onboarding Task</h4>
+              <span className="text-sm font-bold text-slate-400">2/8</span>
+            </div>
+            <div className="space-y-3">
               {[
-                { title: "Cálculo #4: Derivadas", deadline: "Vence hoy, 11:59 PM", type: "urgent", icon: AlertCircle },
-                { title: "Borrador de Ensayo: Inglés", deadline: "Vence en 3 días", type: "pending", icon: FileText },
-                { title: "Cuestionario de Química", deadline: "Calificado: 94/100", type: "completed", icon: CheckCircle2 }
-              ].map((task, idx) => (
-                <motion.div 
-                  key={idx}
-                  whileHover={{ x: 4 }}
-                  className={cn(
-                    "bg-white p-6 rounded-2xl editorial-shadow flex items-start gap-4 border-l-4",
-                    task.type === "urgent" ? "border-primary" : 
-                    task.type === "completed" ? "border-green-500 opacity-70" : "border-slate-200"
-                  )}
-                >
+                { title: "Interview", time: "Sep 13, 08:30", done: true },
+                { title: "Team Meeting", time: "Sep 13, 10:30", done: true },
+                { title: "Project Update", time: "Sep 13, 13:00", done: false },
+              ].map((task, i) => (
+                <div key={i} className="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl">
                   <div className={cn(
-                    "p-3 rounded-xl",
-                    task.type === "urgent" ? "bg-primary/10 text-primary" : 
-                    task.type === "completed" ? "bg-green-100 text-green-600" : "bg-slate-100 text-slate-500"
+                    "w-8 h-8 rounded-full flex items-center justify-center",
+                    task.done ? "bg-tertiary text-white" : "bg-white border border-black/5"
                   )}>
-                    <task.icon size={20} />
+                    {task.done ? <CheckCircle2 size={14} /> : <div className="w-2 h-2 rounded-full bg-slate-200" />}
                   </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-on-surface leading-tight">{task.title}</h4>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">{task.deadline}</p>
-                    {task.type === "urgent" && (
-                      <button className="text-[10px] font-black text-primary uppercase tracking-widest mt-3 hover:underline">
-                        Entregar Ahora
-                      </button>
-                    )}
+                  <div className="flex-1">
+                    <p className="text-xs font-bold">{task.title}</p>
+                    <p className="text-[10px] text-slate-400">{task.time}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </section>
-        </aside>
+          </div>
+        </div>
+
+        {/* Calendar Widget - Spans 2 columns on large screens */}
+        <div className="crextio-card lg:col-span-2 flex flex-col">
+          <div className="flex justify-between items-center mb-8">
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-bold text-slate-400">August</span>
+              <h3 className="text-xl font-bold">September 2024</h3>
+              <span className="text-sm font-bold text-slate-400">October</span>
+            </div>
+          </div>
+          
+          <div className="flex-1 grid grid-cols-7 gap-4">
+            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, i) => (
+              <div key={i} className="text-center space-y-2">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{day}</p>
+                <p className={cn(
+                  "text-sm font-bold w-8 h-8 flex items-center justify-center mx-auto rounded-full",
+                  i === 2 ? "bg-on-surface text-white" : ""
+                )}>{22 + i}</p>
+              </div>
+            ))}
+            
+            {/* Timeline View */}
+            <div className="col-span-7 mt-8 relative h-48 border-t border-black/5 pt-4">
+              <div className="absolute left-0 top-4 bottom-0 w-16 space-y-8">
+                <span className="text-[10px] font-bold text-slate-400 block">8:00 am</span>
+                <span className="text-[10px] font-bold text-slate-400 block">9:00 am</span>
+                <span className="text-[10px] font-bold text-slate-400 block">10:00 am</span>
+              </div>
+              
+              <div className="ml-16 relative h-full">
+                <div className="absolute left-1/4 top-4 w-1/2 p-4 bg-on-surface text-white rounded-2xl shadow-editorial">
+                  <p className="text-xs font-bold">Weekly Team Sync</p>
+                  <p className="text-[10px] opacity-70">Discuss progress on projects</p>
+                </div>
+                
+                <div className="absolute left-1/2 top-24 w-1/3 p-4 bg-white border border-black/5 rounded-2xl shadow-editorial">
+                  <p className="text-xs font-bold text-on-surface">Onboarding Session</p>
+                  <p className="text-[10px] text-slate-400">Introduction for new hires</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Stats Widget */}
+        <div className="crextio-card bg-on-surface text-white flex flex-col justify-between">
+          <div className="flex justify-between items-start">
+            <h3 className="text-xl font-bold">Onboarding Task</h3>
+            <span className="text-2xl font-bold">2/8</span>
+          </div>
+          
+          <div className="space-y-4 mt-8">
+            {[
+              { title: "Interview", time: "Sep 13, 08:30", done: true },
+              { title: "Team Meeting", time: "Sep 13, 10:30", done: true },
+              { title: "Project Update", time: "Sep 13, 13:00", done: false },
+            ].map((task, i) => (
+              <div key={i} className="flex items-center gap-4 p-3 bg-white/10 rounded-2xl">
+                <div className={cn(
+                  "w-8 h-8 rounded-full flex items-center justify-center",
+                  task.done ? "bg-tertiary text-white" : "bg-white/20"
+                )}>
+                  {task.done ? <CheckCircle2 size={14} /> : <div className="w-2 h-2 rounded-full bg-white/20" />}
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-bold">{task.title}</p>
+                  <p className="text-[10px] opacity-50">{task.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

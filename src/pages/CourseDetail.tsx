@@ -54,7 +54,7 @@ export default function CourseDetail() {
       <motion.section 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="glass-card p-8 rounded-3xl editorial-shadow border-l-8 border-primary relative overflow-hidden"
+        className="glass-card p-8 rounded-3xl shadow-editorial border-l-8 border-primary relative overflow-hidden"
       >
         <div className="absolute top-0 right-0 p-8 opacity-5">
           <Megaphone size={120} />
@@ -96,7 +96,7 @@ export default function CourseDetail() {
                   key={idx}
                   className={cn(
                     "p-8 rounded-3xl flex items-center justify-between transition-all duration-300",
-                    module.status === "active" ? "bg-secondary text-white shadow-2xl scale-[1.02]" : "bg-white editorial-shadow hover:bg-slate-50"
+                    module.status === "active" ? "bg-secondary text-white shadow-2xl scale-[1.02]" : "bg-white shadow-editorial hover:bg-slate-50"
                   )}
                 >
                   <div className="flex items-center gap-8">
@@ -150,7 +150,7 @@ export default function CourseDetail() {
           </Link>
 
           {/* Upcoming Assignments */}
-          <section className="bg-white p-8 rounded-3xl editorial-shadow space-y-8">
+          <section className="bg-white p-8 rounded-3xl shadow-editorial space-y-8">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold">Próximas Tareas</h3>
               <Link to="/notificaciones" className="text-xs bg-slate-100 px-3 py-1 rounded-full font-black hover:bg-slate-200 transition-colors">3 TASK</Link>
